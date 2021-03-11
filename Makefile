@@ -2,18 +2,29 @@ NAME = push_swap
 
 NAME_2 = checker
 
-cc = clang
+CC = clang
+
+SRCS_DIR = $(shell find srcs -type d)
+
+PUSH_SWAP_SRC_DIR = $(shell find srcs/push_swap -type d)
+
+CHECKER_SRC_DIR = $(shell find srcs/checker -type d)
 
 INC_DIR = 	$(shell find includes -type d) \
-			$(shell find libs/libft/includes -type d)
-LIB_DIR =	libs/libf
+			$(shell find libft/includes -type d)
 
-SRC =
+LIB_DIR =	libf
 
-OBJ = $(SRC:%.s=%.o)
+SRC = srcs/checker.c
+
+PUSH_SWAP_OBJ_DIR = push_swap_obj
+
+CHECKER_OBJ_DIR = checker_obj
+
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
 #Compilation flag
-CFLAGS = -Wall -Wextra -Werror -no-pie -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 # Colors
 
@@ -26,7 +37,7 @@ _PURPLE=$'\033[35m
 _CYAN=	$'\033[36m
 _WHITE=	$'\033[37m
 
-all:			$(NAME)
+all:			$(NAME) $(NAME_2)
 
 show:
 				@echo "$(_BLUE)SRC :\n$(_YELLOW)$(SRC)$(_WHITE)"
@@ -39,5 +50,172 @@ install:
 re-install:
 				$(foreach dir, $(LIB_DIR), make -C $(dir) re ; )
 
-$(NAME)
-				@echo
+$(OBJ_DIR)/%.o : %.c
+				@echo "Compiling $(_YELLOW)$@$(_WHITE) ... \c"
+				@mkdir -p $(OBJ_DIR)
+				@$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
+				@echo "$(_GREEN)DONE$(_WHITE)"
+
+$(NAME):		$(INC_DIR) $(OBJ) Makefile
+				@echo "-----\nCreating Executable $(_YELLOW)$@$(_WHITE) ... \c"
+				@$(CC) $(LFLAGS) -o $(NAME) $(OBJ) libs/libft/libft.a $(CFLAGS)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+$(NAME_2):		$(INC_DIR) $(OBJ) Makefile
+				@echo "-----\nCreating Executable $(_YELLOW)$@$(_WHITE) ... \c"
+				@$(CC) $(LFLAGS) -o $(NAME_2) $(OBJ) libs/libft/libft.a $(CFLAGS)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+exec: $(NAME)
+				@echo "Launch Binary File $(_BLUE)$(NAME)$(_WHITE)\n-----"
+				@./$(NAME)
+				@echo "-----\n$(_BLUE)$(NAME) $(_GREEN)successfully end$(_WHITE)\n-----"
+
+re:				fclean all
+
+clean:
+				@echo "$(_WHITE)Deleting Objects Directory $(_YELLOW)$(OBJ_DIR)$(_WHITE) ... \c"
+				@rm -rf $(OBJ_DIR)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+fclean:			clean
+				@echo "Deleting Binary File $(_YELLOW)$(NAME)$(_WHITE) ... \c"
+				@rm -f $(NAME) $(BONUS_NAME)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+.PHONY: all clean flcean re show exec norme bonus
+
+
+
+
+
+
+
+NAME1		= push_swap
+NAME2		= checker
+
+CC =		clang
+
+SRCS_DIR = $(shell find srcs -type d)
+PUSH_SWAP_SRC_DIR = $(shell find srcs/push_swap -type d)
+CHECKER_SRC_DIR = $(shell find srcs/checker -type d)
+
+INC_DIR = 	$(shell find includes -type d) \
+			$(shell find libft/includes -type d)
+LIB_DIR =	libft
+
+PUSH_SWAP_OBJ_DIR = push_swap_obj
+CHECKER_OBJ_DIR = checker_obj
+
+vpath %.c $(foreach dir, $(PUSH_SWAP_SRC_DIR), $(dir):)
+vpath %.c $(foreach dir, $(CHECKER_SRC_DIR), $(dir):)
+
+# List de toute les library a linker au projet (le nom - le lib et - le .a)
+LIB = ft
+
+# SRC = $(foreach dir, $(SRCS_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
+
+CHECKER_SRC	=	checker_main.c apply_operation.c
+PUSH_SWAP_SRC =	push_swap_main.c
+
+# OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
+
+PUSH_SWAP_OBJ = $(addprefix $(PUSH_SWAP_OBJ_DIR)/, $(PUSH_SWAP_SRC:%.c=%.o))
+CHECKER_OBJ = $(addprefix $(CHECKER_OBJ_DIR)/, $(CHECKER_SRC:%.c=%.o))
+
+#Compilation flag
+CFLAGS = -Wall -Wextra -Werror -g3
+
+DEBUG =
+ifdef DEBUG
+    CFLAGS += -fsanitize=address
+endif
+
+IFLAGS =	$(foreach dir, $(INC_DIR), -I$(dir))
+
+LFLAGS =	$(foreach dir, $(LIB_DIR), -L $(dir)) \
+			$(foreach lib, $(LIB), -l $(lib))
+
+# Colors
+
+_GREY=	$'\033[30m
+_RED=	$'\033[31m
+_GREEN=	$'\033[32m
+_YELLOW=$'\033[33m
+_BLUE=	$'\033[34m
+_PURPLE=$'\033[35m
+_CYAN=	$'\033[36m
+_WHITE=	$'\033[37m
+
+all:			$(NAME1) $(NAME2)
+
+show:
+				@echo "$(_BLUE)SRC :\n$(_YELLOW)$(PUSH_SWAP_SRC) || $(CHECKER_SRC)$(_WHITE)"
+				@echo "$(_BLUE)SRC_DIR :\n$(_YELLOW)$(PUSH_SWAP_SRC_DIR) || $(CHECKER_SRC_DIR)$(_WHITE)"
+				@echo "$(_BLUE)OBJ :\n$(_YELLOW)$(PUSH_SWAP_OBJ) || $(CHECKER_OBJ)$(_WHITE)"
+				@echo "$(_BLUE)OBJ_DIR :\n$(_YELLOW)$(PUSH_SWAP_OBJ_DIR) || $(CHECKER_OBJ_DIR)$(_WHITE)"
+				@echo "$(_BLUE)CFLAGS :\n$(_YELLOW)$(CFLAGS)$(_WHITE)"
+				@echo "$(_BLUE)IFLAGS :\n$(_YELLOW)$(IFLAGS)$(_WHITE)"
+				@echo "$(_BLUE)LFLAGS :\n$(_YELLOW)$(LFLAGS)$(_WHITE)"
+				@echo "$(_BLUE)LIB_DIR:\n$(_YELLOW)$(LIB_DIR)$(_WHITE)"
+				@echo "$(_BLUE)INC_DIR :\n$(_YELLOW)$(INC_DIR)$(_WHITE)"
+
+libft/libft.a:
+				@echo -n "$(_PURPLE)"
+				$(foreach dir, $(LIB_DIR), make DEBUG=$(DEBUG) -C $(dir) ; )
+				@echo -n "$(_WHITE)"
+
+re-install:
+				@echo "$(_PURPLE)"
+				$(foreach dir, $(LIB_DIR), make DEBUG=$(DEBUG) -C $(dir) re ; )
+				@echo "$(_WHITE)"
+
+$(PUSH_SWAP_OBJ_DIR)/%.o : %.c
+				@echo -n "Compiling $(_YELLOW)$@$(_WHITE) ... "
+				@mkdir -p $(PUSH_SWAP_OBJ_DIR)
+				$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
+				@echo "$(_GREEN)DONE$(_WHITE)"
+
+$(CHECKER_OBJ_DIR)/%.o : %.c
+				@echo -n "Compiling $(_YELLOW)$@$(_WHITE) ... "
+				@mkdir -p $(CHECKER_OBJ_DIR)
+				$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
+				@echo "$(_GREEN)DONE$(_WHITE)"
+
+$(NAME1): 		libft/libft.a $(INC_DIR) $(PUSH_SWAP_OBJ) Makefile
+				@echo -n "-----\nCreating Executable $(_YELLOW)$@$(_WHITE) ... "
+				@$(CC) $(CFLAGS) $(PUSH_SWAP_OBJ) $(LFLAGS) -o $(NAME1)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+$(NAME2): 		libft/libft.a $(INC_DIR) $(CHECKER_OBJ) Makefile
+				@echo -n "-----\nCreating Executable $(_YELLOW)$@$(_WHITE) ... "
+				$(CC) $(CFLAGS) $(CHECKER_OBJ) $(LFLAGS) -o $(NAME2)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+norme:
+				norminette $(PUSH_SWAP_SRC_DIR) ; norminette $(CHECKER_SRC_DIR)
+
+re:				fclean all
+
+sort: 			$(NAME1)
+				@echo "Launch Binary File $(_BLUE)$(NAME1)$(_WHITE)\n-----"
+				@./$(NAME1) $(ARGS)
+				@echo "-----\n$(_BLUE)$(NAME1) $(_GREEN)successfully end$(_WHITE)\n-----"
+
+check:			$(NAME2)
+				@echo "Launch Binary File $(_BLUE)$(NAME2)$(_WHITE)\n-----"
+				@./$(NAME2) $(ARGS)
+				@echo "-----\n$(_BLUE)$(NAME2) $(_GREEN)successfully end$(_WHITE)\n-----"
+
+clean:
+				@echo -n "$(_WHITE)Deleting Objects Directory $(_YELLOW)$(PUSH_SWAP_OBJ_DIR)" \
+				"$(_WHITE)and $(_YELLOW)$(CHECKER_OBJ_DIR)$(_WHITE) ... "
+				@rm -rf $(PUSH_SWAP_OBJ_DIR) $(CHECKER_OBJ_DIR)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+fclean:			clean
+				@echo -n "Deleting Binaries Files $(_YELLOW)$(NAME1)" \
+				"$(_WHITE)& $(_YELLOW)$(NAME2)$(_WHITE) ... "
+				@rm -f $(NAME1) $(NAME2)
+				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
+
+.PHONY: all clean flcean re show norme sort check re-install debug_mod
