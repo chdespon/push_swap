@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:06:39 by ncoudsi           #+#    #+#             */
-/*   Updated: 2020/10/22 10:22:31 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/15 13:24:58 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				ft_count_charset(char *p_src, char p_c);
 
 t_bool			ft_str_is_only_digit(char *str);
 t_bool			ft_is_digit(char c);
-t_bool			ft_strcmp(char *p_src, char *p_target);
+int				ft_strcmp(char *p_src, char *p_target);
 t_bool			ft_strcmp_c(char *p_src, char p_target);
 t_bool			ft_is_whitespaces(char p_c);
 t_bool			ft_is_upper(char p_c);

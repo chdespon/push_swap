@@ -1,112 +1,26 @@
-NAME = push_swap
-
-NAME_2 = checker
-
-CC = clang
-
-SRCS_DIR = $(shell find srcs -type d)
-
-PUSH_SWAP_SRC_DIR = $(shell find srcs/push_swap -type d)
-
-CHECKER_SRC_DIR = $(shell find srcs/checker -type d)
-
-INC_DIR = 	$(shell find includes -type d) \
-			$(shell find libft/includes -type d)
-
-LIB_DIR =	libf
-
-SRC = srcs/checker.c
-
-PUSH_SWAP_OBJ_DIR = push_swap_obj
-
-CHECKER_OBJ_DIR = checker_obj
-
-OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
-
-#Compilation flag
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
-
-# Colors
-
-_GREY=	$'\033[30m
-_RED=	$'\033[31m
-_GREEN=	$'\033[32m
-_YELLOW=$'\033[33m
-_BLUE=	$'\033[34m
-_PURPLE=$'\033[35m
-_CYAN=	$'\033[36m
-_WHITE=	$'\033[37m
-
-all:			$(NAME) $(NAME_2)
-
-show:
-				@echo "$(_BLUE)SRC :\n$(_YELLOW)$(SRC)$(_WHITE)"
-				@echo "$(_BLUE)OBJ :\n$(_YELLOW)$(OBJ)$(_WHITE)"
-				@echo "$(_BLUE)CFLAGS :\n$(_YELLOW)$(CFLAGS)$(_WHITE)"
-
-install:
-				$(foreach dir, $(LIB_DIR), make -C $(dir) ; )
-
-re-install:
-				$(foreach dir, $(LIB_DIR), make -C $(dir) re ; )
-
-$(OBJ_DIR)/%.o : %.c
-				@echo "Compiling $(_YELLOW)$@$(_WHITE) ... \c"
-				@mkdir -p $(OBJ_DIR)
-				@$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
-				@echo "$(_GREEN)DONE$(_WHITE)"
-
-$(NAME):		$(INC_DIR) $(OBJ) Makefile
-				@echo "-----\nCreating Executable $(_YELLOW)$@$(_WHITE) ... \c"
-				@$(CC) $(LFLAGS) -o $(NAME) $(OBJ) libs/libft/libft.a $(CFLAGS)
-				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
-
-$(NAME_2):		$(INC_DIR) $(OBJ) Makefile
-				@echo "-----\nCreating Executable $(_YELLOW)$@$(_WHITE) ... \c"
-				@$(CC) $(LFLAGS) -o $(NAME_2) $(OBJ) libs/libft/libft.a $(CFLAGS)
-				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
-exec: $(NAME)
-				@echo "Launch Binary File $(_BLUE)$(NAME)$(_WHITE)\n-----"
-				@./$(NAME)
-				@echo "-----\n$(_BLUE)$(NAME) $(_GREEN)successfully end$(_WHITE)\n-----"
-
-re:				fclean all
-
-clean:
-				@echo "$(_WHITE)Deleting Objects Directory $(_YELLOW)$(OBJ_DIR)$(_WHITE) ... \c"
-				@rm -rf $(OBJ_DIR)
-				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
-
-fclean:			clean
-				@echo "Deleting Binary File $(_YELLOW)$(NAME)$(_WHITE) ... \c"
-				@rm -f $(NAME) $(BONUS_NAME)
-				@echo "$(_GREEN)DONE$(_WHITE)\n-----"
-
-.PHONY: all clean flcean re show exec norme bonus
-
-
-
-
-
-
-
 NAME1		= push_swap
+
 NAME2		= checker
 
 CC =		clang
 
 SRCS_DIR = $(shell find srcs -type d)
+
 PUSH_SWAP_SRC_DIR = $(shell find srcs/push_swap -type d)
+
 CHECKER_SRC_DIR = $(shell find srcs/checker -type d)
 
 INC_DIR = 	$(shell find includes -type d) \
 			$(shell find libft/includes -type d)
+
 LIB_DIR =	libft
 
 PUSH_SWAP_OBJ_DIR = push_swap_obj
+
 CHECKER_OBJ_DIR = checker_obj
 
 vpath %.c $(foreach dir, $(PUSH_SWAP_SRC_DIR), $(dir):)
+
 vpath %.c $(foreach dir, $(CHECKER_SRC_DIR), $(dir):)
 
 # List de toute les library a linker au projet (le nom - le lib et - le .a)
@@ -114,21 +28,23 @@ LIB = ft
 
 # SRC = $(foreach dir, $(SRCS_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
 
-CHECKER_SRC	=	checker_main.c apply_operation.c
-PUSH_SWAP_SRC =	push_swap_main.c
+CHECKER_SRC	=	checker.c
+
+PUSH_SWAP_SRC =	push_swap.c
 
 # OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
 PUSH_SWAP_OBJ = $(addprefix $(PUSH_SWAP_OBJ_DIR)/, $(PUSH_SWAP_SRC:%.c=%.o))
+
 CHECKER_OBJ = $(addprefix $(CHECKER_OBJ_DIR)/, $(CHECKER_SRC:%.c=%.o))
 
 #Compilation flag
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
-DEBUG =
-ifdef DEBUG
-    CFLAGS += -fsanitize=address
-endif
+# DEBUG =
+# ifdef DEBUG
+#     CFLAGS += -fsanitize=address
+# endif
 
 IFLAGS =	$(foreach dir, $(INC_DIR), -I$(dir))
 
@@ -160,12 +76,12 @@ show:
 				@echo "$(_BLUE)INC_DIR :\n$(_YELLOW)$(INC_DIR)$(_WHITE)"
 
 libft/libft.a:
-				@echo -n "$(_PURPLE)"
+				@echo -n "$(_CYAN)"
 				$(foreach dir, $(LIB_DIR), make DEBUG=$(DEBUG) -C $(dir) ; )
 				@echo -n "$(_WHITE)"
 
 re-install:
-				@echo "$(_PURPLE)"
+				@echo "$(_CYAN)"
 				$(foreach dir, $(LIB_DIR), make DEBUG=$(DEBUG) -C $(dir) re ; )
 				@echo "$(_WHITE)"
 
@@ -198,12 +114,12 @@ re:				fclean all
 
 sort: 			$(NAME1)
 				@echo "Launch Binary File $(_BLUE)$(NAME1)$(_WHITE)\n-----"
-				@./$(NAME1) $(ARGS)
+				@./$(NAME1) "$(ARGS)"
 				@echo "-----\n$(_BLUE)$(NAME1) $(_GREEN)successfully end$(_WHITE)\n-----"
 
 check:			$(NAME2)
 				@echo "Launch Binary File $(_BLUE)$(NAME2)$(_WHITE)\n-----"
-				@./$(NAME2) $(ARGS)
+				@./$(NAME2) "$(ARGS)"
 				@echo "-----\n$(_BLUE)$(NAME2) $(_GREEN)successfully end$(_WHITE)\n-----"
 
 clean:
