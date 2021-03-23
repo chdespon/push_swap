@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:06:39 by ncoudsi           #+#    #+#             */
-/*   Updated: 2021/03/15 13:24:58 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:34:34 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char			*ft_itoa(long long int nbr);
 char			*ft_itoa_hexa(long long int nbr);
 char			*ft_itoa_octa(long long int nbr);
 char			*ft_itoa_unsigned_deci(unsigned int nbr);
-int				ft_atoi(char *p_str);
+long long		ft_atoi(char *p_str);
 
 /*
 ** Prototypage des LISTS.

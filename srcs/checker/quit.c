@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   quit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:41:56 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/23 13:54:50 by chdespon         ###   ########.fr       */
+/*   Created: 2021/03/23 13:54:58 by chdespon          #+#    #+#             */
+/*   Updated: 2021/03/23 13:59:37 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "push_swap_includes.h"
-
-void	quit(int i);
-
-#endif
+void	quit(int i)
+{
+	if (i == 0)
+		ft_putstr("Error\nSome arguments are not integers\n");
+	else if (i == 1)
+		ft_putstr("Error\nSome arguments are bigger than an integer\n");
+	else if (i == 2)
+		ft_putstr("Error\nThere are duplicates\n");
+	exit(0);
+}

@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:50:31 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/11 15:52:23 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/23 15:02:31 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <fcntl.h>
 # include <pthread.h>
 # include <math.h>
+# include <limits.h>
 # include "libft.h"
+# include "push_swap_define.h"
 
 #endif
