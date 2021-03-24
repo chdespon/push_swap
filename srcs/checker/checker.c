@@ -6,28 +6,65 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:29 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/23 16:39:39 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/24 15:57:44 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	**read_outpout()
+void	check_op(char *str)
 {
-	char	*buff;
-	int		ret;
-	void	**opp;
+	if (ft_strcmp(str, "pa") == 0)
+		return ;
+		// push_a();
+	else if (ft_strcmp(str, "pb") == 0)
+		return ;
+		// push_b();
+	else if (ft_strcmp(str, "sa") == 0)
+		return ;
+		// swap_a();
+	else if (ft_strcmp(str, "sb") == 0)
+		return ;
+		// swap_b();
+	else if (ft_strcmp(str, "ss") == 0)
+		return ;
+		// swap_s();
+	else if (ft_strcmp(str, "ra") == 0)
+		return ;
+		// rotate_a();
+	else if (ft_strcmp(str, "rb") == 0)
+		return ;
+		// rotate_b();
+	else if (ft_strcmp(str, "rr") == 0)
+		return ;
+		// rotate_r();
+	else if (ft_strcmp(str, "rra") == 0)
+		return ;
+		// reverse_a();
+	else if (ft_strcmp(str, "rrb") == 0)
+		return ;
+		// reverse_b();
+	else if (ft_strcmp(str, "rrr") == 0)
+		return ;
+		// reverse_r();
+	else if (ft_strcmp(str, "") == 0)
+		return ;
+	else
+		quit(WRONG_OP);
+}
 
-	ret = 3;
-	buff = ft_strnew(5);
-	opp = ft_tab_new(0);
-	while (ret > 2)
+void	read_output(void)
+{
+	char *line;
+
+	ft_putstr("Enter an operation... \"CRTL d\" to exit\n");
+	while (get_next_line(STDIN_FILENO, &line) > 0)
 	{
-		ret = read(STDIN_FILENO, buff, 4);
-		if (ret > 2)
-			ft_add_to_tab(ft_strdup(buff), &opp);
+		check_op(line);
+		ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
+		free(line);
 	}
-	return (opp);
+	free(line);
 }
 
 int		is_sort(char **stack_a, char **stack_b, int len)
@@ -35,9 +72,9 @@ int		is_sort(char **stack_a, char **stack_b, int len)
 	int i;
 
 	i = 0;
-	while (i < len -1)
+	while (i < len - 1)
 	{
-		if (ft_strcmp(stack_a[i], stack_a[i + 1]) > 1)
+		if (ft_atoi(stack_a[i]) > ft_atoi(stack_a[i + 1]))
 			return (0);
 		i++;
 	}
@@ -51,40 +88,6 @@ int		is_sort(char **stack_a, char **stack_b, int len)
 	return (1);
 }
 
-void	check_arg(char **stack_a, int len, char *str)
-{
-	int i;
-	int j;
-
-
-	i = 0;
-	while (i < len)
-	{
-		if (ft_atoi(stack_a[i]) > INT_MAX || ft_atoi(stack_a[i]) < INT_MIN)
-			quit(BIGGER_THAN_INT);
-		j = 1;
-		while (j + i < len)
-		{
-			if (ft_strcmp(stack_a[i], stack_a[i + j]) == 0)
-				quit(DUPLICATE);
-			j++;
-		}
-		i++;
-	}
-	(void)str;
-	i = 0;
-	while (str[i])
-	{
-		if ((ft_is_digit(str[i]) == false
-			&& ft_is_whitespaces(str[i]) == false && str[i] != '-')
-			|| (str[0] == '-' && str[1] == '\0')
-			|| (i > 0 && str[i] == '-'
-			&& (str[i - 1] != ' ' || ft_is_digit(str[i + 1]) == false)))
-			quit(NOT_DIGIT);
-		i++;
-	}
-}
-
 int		main(int ac, char **av)
 {
 	char	**stack_a;
@@ -95,14 +98,12 @@ int		main(int ac, char **av)
 		return (0);
 	stack_a = ft_split(av[1], ' ');
 	len = ft_tab_len((void**)stack_a);
-	check_arg(stack_a, len, av[1]);
+	parse_arg(stack_a, len, av[1]);
 	stack_b = ft_tab_new(len);
-	// read_outpout();
+	read_output();
 	if (is_sort(stack_a, (char**)stack_b, len))
-		ft_putstr("OK\n");
+		quit(OK);
 	else
-		ft_putstr("KO\n");
-	ft_free_tab(stack_b);
-	ft_free_tab((void**)stack_a);
+		quit(KO);
 	return (0);
 }

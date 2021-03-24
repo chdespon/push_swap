@@ -28,7 +28,7 @@ LIB = ft
 
 # SRC = $(foreach dir, $(SRCS_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
 
-CHECKER_SRC =	checker.c quit.c
+CHECKER_SRC =	checker.c quit.c parse_arg.c
 
 PUSH_SWAP_SRC =	push_swap.c
 
