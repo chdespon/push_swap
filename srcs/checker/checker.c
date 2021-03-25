@@ -6,13 +6,13 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:29 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/24 15:57:44 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:11:19 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_op(char *str)
+void	apply_instruction(char *str)
 {
 	if (ft_strcmp(str, "pa") == 0)
 		return ;
@@ -47,24 +47,52 @@ void	check_op(char *str)
 	else if (ft_strcmp(str, "rrr") == 0)
 		return ;
 		// reverse_r();
-	else if (ft_strcmp(str, "") == 0)
-		return ;
-	else
-		quit(WRONG_OP);
 }
 
-void	read_output(void)
+void	apply_op(t_list *op)
+{
+	t_list	*tmp;
+
+	tmp = op;
+	while (op != NULL)
+	{
+		apply_instruction(op->data);
+		op = op->next;
+	}
+	op = tmp;
+}
+
+void	check_op(char *str, t_list **op)
+{
+	if (ft_strcmp(str, "pa") == 0 || ft_strcmp(str, "pb") == 0 ||
+			ft_strcmp(str, "sa") == 0 || ft_strcmp(str, "sb") == 0 ||
+			ft_strcmp(str, "ss") == 0 || ft_strcmp(str, "ra") == 0 ||
+			ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rr") == 0 ||
+			ft_strcmp(str, "rra") == 0 || ft_strcmp(str, "rrb") == 0 ||
+			ft_strcmp(str, "rrr") == 0)
+		ft_lst_add_back(op, ft_lst_create_node(str));
+	else if (ft_strcmp(str, "") == 0)
+	{
+		free(str);
+		return ;
+	}
+	else
+	{
+		ft_lst_clear(op, free);
+		quit(WRONG_OP);
+	}
+}
+
+void	read_output(t_list	**op)
 {
 	char *line;
 
 	ft_putstr("Enter an operation... \"CRTL d\" to exit\n");
 	while (get_next_line(STDIN_FILENO, &line) > 0)
 	{
-		check_op(line);
+		check_op(line, op);
 		ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
-		free(line);
 	}
-	free(line);
 }
 
 int		is_sort(char **stack_a, char **stack_b, int len)
@@ -90,20 +118,22 @@ int		is_sort(char **stack_a, char **stack_b, int len)
 
 int		main(int ac, char **av)
 {
-	char	**stack_a;
-	void	**stack_b;
 	int		len;
+	// t_list	stack_a;
+	// t_list	stack_b;
+	t_list	*op;
 
-	if (ac != 2)
+	op = NULL;
+	if (ac == 1)
 		return (0);
-	stack_a = ft_split(av[1], ' ');
-	len = ft_tab_len((void**)stack_a);
-	parse_arg(stack_a, len, av[1]);
-	stack_b = ft_tab_new(len);
-	read_output();
-	if (is_sort(stack_a, (char**)stack_b, len))
-		quit(OK);
-	else
-		quit(KO);
+	len = ft_tab_len((void**)av);
+	parse_arg(av, len);
+	read_output(&op);
+	apply_op(op);
+	// if (is_sort(stack_a, stack_b, len))
+	// 	quit(OK);
+	// else
+	// 	quit(KO);
+	ft_lst_clear(&op, free);
 	return (0);
 }

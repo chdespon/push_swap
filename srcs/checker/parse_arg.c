@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/24 11:14:53 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/25 11:50:33 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,21 @@ static void	check_only_digit(char *str)
 	}
 }
 
-static void	check_duplicate_and_max_min_int(char **stack_a, int len)
+static void	check_duplicate_and_max_min_int(char **list, int len)
 {
 	int i;
 	int j;
 
-	i = 0;
+	i = 1;
 	while (i < len)
 	{
-		if (ft_atoi(stack_a[i]) > INT_MAX || ft_atoi(stack_a[i]) < INT_MIN)
+		if (ft_atoi(list[i]) > INT_MAX || ft_atoi(list[i]) < INT_MIN)
 			quit(BIGGER_THAN_INT);
+		check_only_digit(list[i]);
 		j = 1;
 		while (j + i < len)
 		{
-			if (ft_strcmp(stack_a[i], stack_a[i + j]) == 0)
+			if (ft_atoi(list[i]) == ft_atoi(list[i + j]))
 				quit(DUPLICATE);
 			j++;
 		}
@@ -50,8 +51,7 @@ static void	check_duplicate_and_max_min_int(char **stack_a, int len)
 	}
 }
 
-void		parse_arg(char **stack_a, int len, char *str)
+void		parse_arg(char **list, int len)
 {
-	check_duplicate_and_max_min_int(stack_a, len);
-	check_only_digit(str);
+	check_duplicate_and_max_min_int(list, len);
 }

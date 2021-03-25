@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:54:58 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/24 14:07:41 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/25 12:20:04 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	quit(int i)
 	else if (i == 4)
 		ft_putstr(_RED"KO\n"_WHITE);
 	else if (i == 5)
-		ft_putstr(_RED"Wrong operation\n"_WHITE);
+		ft_putstr(_RED"Error\nWrong operation\n"_WHITE);
 	exit(0);
 }
