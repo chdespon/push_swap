@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:29 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/25 14:11:19 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:02:25 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	apply_op(t_list *op)
 	op = tmp;
 }
 
-void	check_op(char *str, t_list **op)
+void	set_op(char *str, t_list **op)
 {
 	if (ft_strcmp(str, "pa") == 0 || ft_strcmp(str, "pb") == 0 ||
 			ft_strcmp(str, "sa") == 0 || ft_strcmp(str, "sb") == 0 ||
@@ -86,54 +86,74 @@ void	check_op(char *str, t_list **op)
 void	read_output(t_list	**op)
 {
 	char *line;
+	int ret;
 
+	ret = 1;
 	ft_putstr("Enter an operation... \"CRTL d\" to exit\n");
-	while (get_next_line(STDIN_FILENO, &line) > 0)
+	while (ret >= 1)
 	{
-		check_op(line, op);
+		ret = get_next_line(STDIN_FILENO, &line);
+		set_op(line, op);
 		ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
 	}
 }
 
-int		is_sort(char **stack_a, char **stack_b, int len)
+int		is_sort(t_list *stack_a, t_list *stack_b)
+{
+	t_list *tmp;
+
+	tmp = stack_a;
+	while (stack_a != NULL)
+	{
+		if (ft_atoi((char*)stack_a->data) > ft_atoi((char*)stack_a->data))
+			return (0);
+		stack_a = stack_a->next;
+	}
+	if (stack_b != NULL)
+		return (0);
+	return(1);
+}
+
+void	set_stack_a(t_list **stack_a, char **list)
 {
 	int i;
+	int len;
 
-	i = 0;
-	while (i < len - 1)
-	{
-		if (ft_atoi(stack_a[i]) > ft_atoi(stack_a[i + 1]))
-			return (0);
-		i++;
-	}
-	i = 0;
+	len = ft_tab_len((void**)list);
+	i = 1;
 	while (i < len)
 	{
-		if (ft_strcmp(stack_b[i], NULL) != 0)
-			return (0);
+		ft_lst_add_back(stack_a, ft_lst_create_node(list[i]));
 		i++;
 	}
-	return (1);
 }
 
 int		main(int ac, char **av)
 {
-	int		len;
-	// t_list	stack_a;
-	// t_list	stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 	t_list	*op;
 
 	op = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac == 1)
 		return (0);
-	len = ft_tab_len((void**)av);
-	parse_arg(av, len);
+	parse_arg(av);
 	read_output(&op);
+	set_stack_a(&stack_a, av);
 	apply_op(op);
-	// if (is_sort(stack_a, stack_b, len))
-	// 	quit(OK);
-	// else
-	// 	quit(KO);
-	ft_lst_clear(&op, free);
+	if (is_sort(stack_a, stack_b))
+	{
+		ft_lst_clear(&stack_a, NULL);
+		ft_lst_clear(&op, free);
+		quit(OK);
+	}
+	else
+	{
+		ft_lst_clear(&stack_a, NULL);
+		ft_lst_clear(&op, free);
+		quit(KO);
+	}
 	return (0);
 }

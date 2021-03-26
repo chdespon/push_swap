@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lst_clear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguilbar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 12:47:03 by tguilbar          #+#    #+#             */
-/*   Updated: 2020/02/25 11:13:35 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/03/26 13:50:07 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_lst_clear(t_list **lst, void (*del)(void*))
 	while (*lst)
 	{
 		l = *lst;
-		(*del)(l->data);
+		if (del != NULL)
+			(*del)(l->data);
 		*lst = l->next;
 		free(l);
 	}

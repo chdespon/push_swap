@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/25 11:50:33 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/26 13:35:56 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ static void	check_only_digit(char *str)
 	}
 }
 
-static void	check_duplicate_and_max_min_int(char **list, int len)
+static void	check_duplicate_and_max_min_int(char **list)
 {
 	int i;
 	int j;
+	int len;
 
+	len = ft_tab_len((void**)list);
 	i = 1;
 	while (i < len)
 	{
@@ -51,7 +53,7 @@ static void	check_duplicate_and_max_min_int(char **list, int len)
 	}
 }
 
-void		parse_arg(char **list, int len)
+void		parse_arg(char **list)
 {
-	check_duplicate_and_max_min_int(list, len);
+	check_duplicate_and_max_min_int(list);
 }
