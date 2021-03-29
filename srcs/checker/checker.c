@@ -6,57 +6,46 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:29 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/26 14:02:25 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/29 15:08:18 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	apply_instruction(char *str)
+void	apply_instruction(char *str, t_list **stack_a, t_list ** stack_b)
 {
 	if (ft_strcmp(str, "pa") == 0)
-		return ;
-		// push_a();
+		push(stack_a, stack_b);
 	else if (ft_strcmp(str, "pb") == 0)
-		return ;
-		// push_b();
+		push(stack_b, stack_a);
 	else if (ft_strcmp(str, "sa") == 0)
-		return ;
-		// swap_a();
+		swap(stack_a);
 	else if (ft_strcmp(str, "sb") == 0)
-		return ;
-		// swap_b();
+		swap(stack_b);
 	else if (ft_strcmp(str, "ss") == 0)
-		return ;
-		// swap_s();
+		swap_s(stack_a, stack_b);
 	else if (ft_strcmp(str, "ra") == 0)
-		return ;
-		// rotate_a();
+		rotate(stack_a);
 	else if (ft_strcmp(str, "rb") == 0)
-		return ;
-		// rotate_b();
+		rotate(stack_b);
 	else if (ft_strcmp(str, "rr") == 0)
-		return ;
-		// rotate_r();
+		rotate_r(stack_a, stack_b);
 	else if (ft_strcmp(str, "rra") == 0)
-		return ;
-		// reverse_a();
+		reverse(stack_a);
 	else if (ft_strcmp(str, "rrb") == 0)
-		return ;
-		// reverse_b();
+		reverse(stack_b);
 	else if (ft_strcmp(str, "rrr") == 0)
-		return ;
-		// reverse_r();
+		reverse_r(stack_a, stack_b);
 }
 
-void	apply_op(t_list *op)
+void	apply_op(t_list *op, t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
 	tmp = op;
 	while (op != NULL)
 	{
-		apply_instruction(op->data);
+		apply_instruction(op->data, stack_a, stack_b);
 		op = op->next;
 	}
 	op = tmp;
@@ -89,12 +78,11 @@ void	read_output(t_list	**op)
 	int ret;
 
 	ret = 1;
-	ft_putstr("Enter an operation... \"CRTL d\" to exit\n");
 	while (ret >= 1)
 	{
+		ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
 		ret = get_next_line(STDIN_FILENO, &line);
 		set_op(line, op);
-		ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
 	}
 }
 
@@ -103,9 +91,9 @@ int		is_sort(t_list *stack_a, t_list *stack_b)
 	t_list *tmp;
 
 	tmp = stack_a;
-	while (stack_a != NULL)
+	while (stack_a != NULL && stack_a->next != NULL)
 	{
-		if (ft_atoi((char*)stack_a->data) > ft_atoi((char*)stack_a->data))
+		if (ft_atoi((char*)stack_a->data) > ft_atoi((char*)stack_a->next->data))
 			return (0);
 		stack_a = stack_a->next;
 	}
@@ -142,7 +130,7 @@ int		main(int ac, char **av)
 	parse_arg(av);
 	read_output(&op);
 	set_stack_a(&stack_a, av);
-	apply_op(op);
+	apply_op(op, &stack_a, &stack_b);
 	if (is_sort(stack_a, stack_b))
 	{
 		ft_lst_clear(&stack_a, NULL);

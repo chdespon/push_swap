@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:41:56 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/26 13:36:13 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/29 14:49:43 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@
 # include "push_swap_includes.h"
 
 void	quit(int i);
+
+/*
+** Parsing
+*/
+
 void	parse_arg(char **stack_a);
+
+/*
+** OP
+*/
+
+void	swap(t_list **stack);
+void	swap_s(t_list **stack_a, t_list **stack_b);
+void	rotate_r(t_list **stack_a, t_list **stack_b);
+void	rotate(t_list **stack);
+void	reverse(t_list **stack);
+void	push(t_list **stack_a, t_list **stack_b);
+void	reverse(t_list **stack);
+void	reverse_r(t_list **stack_a, t_list **stack_b);
 
 #endif

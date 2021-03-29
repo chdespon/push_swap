@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply_op.c                                         :+:      :+:    :+:   */
+/*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 15:58:39 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/24 16:22:00 by chdespon         ###   ########.fr       */
+/*   Created: 2021/03/29 11:53:57 by chdespon          #+#    #+#             */
+/*   Updated: 2021/03/29 14:07:08 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(char **stack_a, char **stack_b, int len)
+void	swap(t_list **stack)
 {
-	int i;
-	char **tmp;
+	void *tmp;
 
-	if (stack_b[0] == NULL)
+	tmp = NULL;
+	if (ft_lst_size(*stack) < 2)
 		return ;
-	tmp = ft_tab_new(len);
+	tmp = (*stack)->data;
+	(*stack)->data = (*stack)->next->data;
+	(*stack)->next->data = tmp;
+}
+
+void	swap_s(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
 }

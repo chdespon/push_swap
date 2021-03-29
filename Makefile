@@ -8,29 +8,27 @@ SRCS_DIR = $(shell find srcs -type d)
 
 PUSH_SWAP_SRC_DIR = $(shell find srcs/push_swap -type d)
 
-CHECKER_SRC_DIR = $(shell find srcs/checker -type d)
+CHECKER_SRC_DIR = 	$(shell find srcs/checker -type d)
 
-INC_DIR = 	$(shell find includes -type d) \
-			$(shell find libft/includes -type d)
+INC_DIR =	$(shell find includes -type d) \
+			$(shell find libft/includes -type d)\
 
 LIB_DIR =	libft
 
-PUSH_SWAP_OBJ_DIR = push_swap_obj
+PUSH_SWAP_OBJ_DIR = objs/push_swap_obj
+CHECKER_OBJ_DIR = objs/checker_obj
 
-CHECKER_OBJ_DIR = checker_obj
+vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
-vpath %.c $(foreach dir, $(PUSH_SWAP_SRC_DIR), $(dir):)
-
-vpath %.c $(foreach dir, $(CHECKER_SRC_DIR), $(dir):)
 
 # List de toute les library a linker au projet (le nom - le lib et - le .a)
 LIB = ft
 
 # SRC = $(foreach dir, $(SRCS_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
 
-CHECKER_SRC =	checker.c quit.c parse_arg.c
+CHECKER_SRC =	checker.c quit.c parse_arg.c op_push.c op_swap.c op_rotate.c op_reverse.c
 
-PUSH_SWAP_SRC =	push_swap.c
+PUSH_SWAP_SRC =	push_swap.c op_push.c op_swap.c op_rotate.c op_reverse.c
 
 # OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
