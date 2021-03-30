@@ -26,9 +26,11 @@ LIB = ft
 
 # SRC = $(foreach dir, $(SRCS_DIR), $(foreach file, $(wildcard $(dir)/*.c), $(notdir $(file))))
 
-CHECKER_SRC =	checker.c quit.c parse_arg.c op_push.c op_swap.c op_rotate.c op_reverse.c
+CHECKER_SRC =	checker.c quit.c parse_arg.c op_push.c op_swap.c op_rotate.c op_reverse.c \
+				 engine_constructeur.c set_stack_a.c
 
-PUSH_SWAP_SRC =	push_swap.c op_push.c op_swap.c op_rotate.c op_reverse.c
+PUSH_SWAP_SRC =	push_swap.c op_push.c op_swap.c op_rotate.c op_reverse.c engine_constructeur.c \
+				quit.c set_stack_a.c parse_arg.c
 
 # OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 

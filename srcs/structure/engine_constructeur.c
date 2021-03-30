@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_reverse.c                                       :+:      :+:    :+:   */
+/*   engine_constructeur.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/29 13:55:23 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 16:02:59 by chdespon         ###   ########.fr       */
+/*   Created: 2021/03/30 13:19:52 by chdespon          #+#    #+#             */
+/*   Updated: 2021/03/30 15:10:23 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse(t_list **stack)
+t_engine	create_engine(void)
 {
-	t_list *tmp;
+	t_engine	result;
 
-	tmp = *stack;
-	if (ft_lst_size(*stack) > 2)
-	{
-		while ((*stack)->next->next != NULL)
-			*stack = (*stack)->next;
-		(*stack)->next->next = tmp;
-		tmp = *stack;
-		*stack = (*stack)->next;
-		tmp->next = NULL;
-	}
-	if (ft_lst_size(*stack) == 2)
-		swap(stack);
+	result.stack_a = NULL;
+	result.stack_b = NULL;
+	result.op = NULL;
+	result.len_list = 0;
+	result.last_node = 0;
+	return (result);
 }
 
-void	reverse_r(t_list **stack_a, t_list **stack_b)
+t_engine	*malloc_engine(void)
 {
-	reverse(stack_a);
-	reverse(stack_b);
+	t_engine *result;
+
+	result = (t_engine*)malloc(sizeof(t_engine));
+	if (result == NULL)
+		return (NULL);
+	*result = create_engine();
+	return (result);
 }
