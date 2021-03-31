@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:19:52 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 15:10:23 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/31 11:41:50 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_engine	create_engine(void)
 	result.stack_a = NULL;
 	result.stack_b = NULL;
 	result.op = NULL;
-	result.len_list = 0;
+	result.len_stack_a = 0;
+	result.len_stack_b = 0;
 	result.last_node = 0;
 	return (result);
 }

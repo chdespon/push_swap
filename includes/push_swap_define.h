@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 13:23:45 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/31 11:41:44 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct	s_engine
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_list	*op;
-	int		len_list;
+	int		len_stack_a;
+	int		len_stack_b;
 	int		last_node;
 }				t_engine;
 

@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:54:58 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 16:10:38 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:51:21 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 void	quit(int i, t_engine *engine)
 {
 	if (i == ERROR_Malloc)
-	{
 		ft_putstr(_RED"Error\n"_WHITE);
-		exit(0);
-	}
 	else if (i == NOT_DIGIT)
 		ft_putstr(_RED"Error\nSome arguments are not integers\n"_WHITE);
 	else if (i == BIGGER_THAN_INT)

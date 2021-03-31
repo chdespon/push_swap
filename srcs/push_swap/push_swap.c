@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:34 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 16:44:13 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/03/31 09:57:29 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int ac, char **av)
 	printf("ici\n");
 	parse_arg(av, engine);
 	set_stack_a(engine, av);
+	
 	return (0);
 }

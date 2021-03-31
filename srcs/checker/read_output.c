@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   read_output.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/29 10:05:51 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/31 11:58:49 by chdespon         ###   ########.fr       */
+/*   Created: 2021/03/31 10:01:58 by chdespon          #+#    #+#             */
+/*   Updated: 2021/03/31 10:02:25 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **dest, t_list **src, int *len_dest, int *len_src)
+void	read_output(t_engine *engine)
 {
-	t_list *tmp;
+	char *line;
+	int ret;
 
-	tmp = NULL;
-	if (*src == NULL)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	ft_lst_add_front(dest, tmp);
-	(*len_dest)++;
-	(*len_src)--;
+	ret = 1;
+	while (ret >= 1)
+	{
+		ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
+		ret = get_next_line(STDIN_FILENO, &line);
+		set_op(line, engine);
+	}
 }

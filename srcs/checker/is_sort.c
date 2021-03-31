@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   is_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/29 10:05:51 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/31 11:58:49 by chdespon         ###   ########.fr       */
+/*   Created: 2021/03/31 10:08:24 by chdespon          #+#    #+#             */
+/*   Updated: 2021/03/31 10:08:35 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **dest, t_list **src, int *len_dest, int *len_src)
+int	is_sort(t_engine *engine)
 {
 	t_list *tmp;
 
-	tmp = NULL;
-	if (*src == NULL)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	ft_lst_add_front(dest, tmp);
-	(*len_dest)++;
-	(*len_src)--;
+	tmp = engine->stack_a;
+	while (engine->stack_a != NULL && engine->stack_a->next != NULL)
+	{
+		if (ft_atoi((char*)engine->stack_a->data) >
+			ft_atoi((char*)engine->stack_a->next->data))
+			return (0);
+		engine->stack_a = engine->stack_a->next;
+	}
+	engine->stack_a = tmp;
+	if (engine->stack_b != NULL)
+		return (0);
+	return(1);
 }
