@@ -6,12 +6,12 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/31 11:41:44 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/01 16:25:59 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_INCLUDE_H
-# define PUSH_SWAP_INCLUDE_H
+#ifndef PUSH_SWAP_DEFINE_H
+# define PUSH_SWAP_DEFINE_H
 
 # define _BLUE "\033[1;34m"
 # define _WHITE "\033[0;37m"
@@ -19,7 +19,7 @@
 # define _PURPLE "\033[1;35m"
 # define _RED "\033[1;31m"
 
-# define ERROR_Malloc 0
+# define ERROR_MALLOC 0
 # define NOT_DIGIT 1
 # define BIGGER_THAN_INT 2
 # define DUPLICATE 3
@@ -36,5 +36,11 @@ typedef struct	s_engine
 	int		len_stack_b;
 	int		last_node;
 }				t_engine;
+
+typedef struct	s_data_num
+{
+	int		index;
+	int		value;
+}				t_data_num;
 
 #endif

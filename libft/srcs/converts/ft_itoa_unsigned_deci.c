@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_unsigned_deci.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncoudsi <ncoudsi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 16:42:31 by ncoudsi           #+#    #+#             */
-/*   Updated: 2019/12/03 17:11:14 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/04/01 15:22:42 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_nbrlen(unsigned long long int nbr, size_t base_len)
+static size_t	nbrlen(unsigned long long int nbr, size_t base_len)
 {
 	size_t					nbr_len;
 
@@ -34,7 +34,7 @@ char			*ft_itoa_unsigned_deci(unsigned int nbr)
 
 	base = "0123456789";
 	base_len = ft_strlen(base);
-	nbr_len = ft_nbrlen(nbr, base_len);
+	nbr_len = nbrlen(nbr, base_len);
 	result = ft_strnew(nbr_len);
 	result[nbr_len] = '\0';
 	nbr_len--;

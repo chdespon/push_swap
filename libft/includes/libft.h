@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:06:39 by ncoudsi           #+#    #+#             */
-/*   Updated: 2021/03/23 15:34:34 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/01 15:29:14 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void			ft_char_list_push_back(t_char_list *list, char *to_add);
 ** Prototypage des IO.
 */
 
+unsigned long	ft_nbrlen(int nbr);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_putchar(char c);
 void			ft_putchar_fd(int fd, char c);

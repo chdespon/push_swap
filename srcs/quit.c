@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:54:58 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 16:51:21 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/01 15:37:01 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	quit(int i, t_engine *engine)
 {
-	if (i == ERROR_Malloc)
+	if (i == ERROR_MALLOC)
 		ft_putstr(_RED"Error\n"_WHITE);
 	else if (i == NOT_DIGIT)
 		ft_putstr(_RED"Error\nSome arguments are not integers\n"_WHITE);
@@ -25,13 +25,13 @@ void	quit(int i, t_engine *engine)
 		ft_putstr(_RED"Error\nThere are duplicates\n"_WHITE);
 	else if (i == OK)
 	{
-		ft_lst_clear(&engine->stack_a, NULL);
+		ft_lst_clear(&engine->stack_a, free);
 		ft_lst_clear(&engine->op, free);
 		ft_putstr(_GREEN"OK\n"_WHITE);
 	}
 	else if (i == KO)
 	{
-		ft_lst_clear(&engine->stack_a, NULL);
+		ft_lst_clear(&engine->stack_a, free);
 		ft_lst_clear(&engine->op, free);
 		ft_putstr(_RED"KO\n"_WHITE);
 	}

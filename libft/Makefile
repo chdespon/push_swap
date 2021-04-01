@@ -32,7 +32,7 @@ SRC =		ft_f_abs.c ft_f_floor.c ft_f_roof.c ft_i_abs.c ft_i_roof.c \
 			get_next_line.c get_next_line_utils.c ft_get_file.c \
 			ft_print_str_tab.c ft_print_str_tab_fd.c ft_print_str_tab_fp.c \
 			ft_print_int_tab_fd.c ft_print_int_tab.c ft_count_charset.c \
-			ft_memset.c\
+			ft_memset.c ft_nbrlen.c \
 			\
 			ft_free_tab.c ft_tab_cpy.c ft_tab_new.c ft_tab_len.c \
 			ft_add_to_tab.c \
@@ -46,7 +46,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
 #Compilation flag
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 #Include flag
 IFLAGS = $(foreach dir, $(INC_DIR), -I$(dir))

@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:34 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/31 09:57:29 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/01 15:30:03 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ int	main(int ac, char **av)
 		return (0);
 	engine = malloc_engine();
 	if (engine == NULL)
-		quit(ERROR_Malloc, engine);
-	printf("ici\n");
-	parse_arg(av, engine);
+		quit(ERROR_MALLOC, engine);
+	parse_arg(ac, av, engine);
 	set_stack_a(engine, av);
-	
 	return (0);
 }

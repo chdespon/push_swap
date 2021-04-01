@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/30 15:59:02 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/01 12:24:03 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ static void	check_only_digit(char *str, t_engine *engine)
 	}
 }
 
-static void	check_duplicate_and_max_min_int(char **list, t_engine *engine)
+static void	check_duplicate_and_max_min_int(int ac, char **list,
+															t_engine *engine)
 {
 	int i;
 	int j;
 	int len;
 
-	len = ft_tab_len((void**)list);
-	engine->len_list = len - 1;
+	len = ac;
+	engine->len_stack_a = len - 1;
 	i = 1;
 	while (i < len)
 	{
@@ -54,7 +55,7 @@ static void	check_duplicate_and_max_min_int(char **list, t_engine *engine)
 	}
 }
 
-void		parse_arg(char **list, t_engine *engine)
+void		parse_arg(int ac, char **list, t_engine *engine)
 {
-	check_duplicate_and_max_min_int(list, engine);
+	check_duplicate_and_max_min_int(ac ,list, engine);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguilbar <tguilbar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 11:49:49 by tguilbar          #+#    #+#             */
-/*   Updated: 2019/12/03 17:11:36 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/04/01 15:22:16 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_nbrlen(long long int nbr, size_t base_len)
+static size_t	nbrlen(long long int nbr, size_t base_len)
 {
 	size_t					nbr_len;
 	unsigned long long int	abs_nbr;
@@ -41,7 +41,7 @@ char			*ft_itoa_base(long long int nbr, char *base)
 	unsigned long long int	abs_nbr;
 
 	base_len = ft_strlen(base);
-	nbr_len = ft_nbrlen(nbr, base_len);
+	nbr_len = nbrlen(nbr, base_len);
 	result = ft_strnew(nbr_len);
 	if (nbr < 0)
 	{
