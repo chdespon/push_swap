@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:19:52 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/31 11:41:50 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:02:05 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_engine	create_engine(void)
 	result.len_stack_a = 0;
 	result.len_stack_b = 0;
 	result.last_node = 0;
+	result.verbose = false;
 	return (result);
 }
 
@@ -31,7 +32,7 @@ t_engine	*malloc_engine(void)
 
 	result = (t_engine*)malloc(sizeof(t_engine));
 	if (result == NULL)
-		return (NULL);
+		quit (ERROR_MALLOC, result);
 	*result = create_engine();
 	return (result);
 }

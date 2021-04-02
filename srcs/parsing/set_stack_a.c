@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:24:40 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/01 16:11:20 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:59:31 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,31 @@
 
 void	set_stack_index(t_engine *engine)
 {
-	t_list *tmp_i;
-	t_list *tmp_j;
-	int	index;
+	t_list	*tmp_i;
+	t_list	*tmp_j;
+	int		index;
 
 	tmp_i = engine->stack_a;
-	while (engine->stack_a != NULL && engine->stack_a->next != NULL)
+	while (tmp_i != NULL)
 	{
 		tmp_j = engine->stack_a;
 		index = 0;
-		while (engine->stack_a != NULL && engine->stack_a->next != NULL)
+		while (tmp_j != NULL)
 		{
-			if (((t_data_num*)engine->stack_a->data)->value >
-				((t_data_num*)engine->stack_a->next->data)->value)
+			if (((t_data_num*)tmp_i->data)->value >
+				((t_data_num*)tmp_j->data)->value )
 				index++;
-			engine->stack_a = engine->stack_a->next;
+			tmp_j = tmp_j->next;
 		}
-		((t_data_num*)engine->stack_a->data)->value = index;
-		engine->stack_a = tmp_j;
-		engine->stack_a = engine->stack_a->next;
+		((t_data_num*)tmp_i->data)->index = index;
+		tmp_i = tmp_i->next;
 	}
-	engine->stack_a = tmp_i;
 }
 
 void	set_stack_a(t_engine *engine, char **list)
 {
-	int i;
-	t_data_num **data_num;
+	int			i;
+	t_data_num	**data_num;
 
 	data_num = (t_data_num**)malloc(sizeof(t_data_num*) * engine->len_stack_a);
 	if (data_num == NULL)

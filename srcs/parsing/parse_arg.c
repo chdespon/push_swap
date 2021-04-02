@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/01 12:24:03 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:04:44 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static void	check_duplicate_and_max_min_int(int ac, char **list,
 	int j;
 	int len;
 
-	len = ac;
-	engine->len_stack_a = len - 1;
-	i = 1;
+	len = ac - 1 - engine->verbose;
+	engine->len_stack_a = len;
+	i = engine->verbose;
 	while (i < len)
 	{
 		if (ft_atoi(list[i]) > INT_MAX || ft_atoi(list[i]) < INT_MIN)

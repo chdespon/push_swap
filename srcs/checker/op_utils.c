@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:04:06 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/01 11:48:53 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:04:17 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,22 @@ void		apply_op(t_engine *engine)
 	t_list	*tmp;
 
 	tmp = engine->op;
-	ft_putstr("> init\n");
-	print_stacks(engine);
+	if (engine->verbose == true)
+	{
+		ft_putstr("> init\n");
+		print_stacks(engine);
+	}
 	while (engine->op != NULL)
 	{
-		if (engine->op != NULL)
+		if (engine->op != NULL && engine->verbose == true)
 		{
 			ft_putstr("> ");
 			ft_putstr(engine->op->data);
 			ft_putstr("\n");
 		}
 		apply_instruction(engine);
-		print_stacks(engine);
+		if (engine->verbose == true)
+			print_stacks(engine);
 		engine->op = engine->op->next;
 	}
 	engine->op = tmp;

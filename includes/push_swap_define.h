@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/01 16:25:59 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:40:30 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ typedef struct	s_engine
 	int		len_stack_a;
 	int		len_stack_b;
 	int		last_node;
+	t_bool	verbose;
 }				t_engine;
 
 typedef struct	s_data_num
 {
 	int		index;
 	int		value;
+	t_bool	keep;
 }				t_data_num;
 
 #endif
