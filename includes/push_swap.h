@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:41:56 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/02 13:04:31 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/06 13:51:27 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ void		apply_op(t_engine *engine);
 void		read_output(t_engine *engine);
 int			is_sort(t_engine *engine);
 void		print_stacks(t_engine *engine);
+
+/*
+** Push_swap
+*/
+
+void		print_op(t_engine *engine);
+void		resolve_stack(t_engine *engine);
 
 /*
 ** Parsing

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_op.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 14:34:34 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/06 13:51:06 by chdespon         ###   ########.fr       */
+/*   Created: 2021/04/06 11:55:37 by chdespon          #+#    #+#             */
+/*   Updated: 2021/04/06 13:51:19 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	print_op(t_engine *engine)
 {
-	t_engine *engine;
+	t_list *tmp;
 
-	if (ac == 1)
-		return (0);
-	engine = malloc_engine();
-	parse_arg(ac, av + 1, engine);
-	set_stack_a(engine, av + 1);
-	set_stack_index(engine);
-	resolve_stack(engine);
-	print_op(engine);
-	return (0);
+	tmp = engine->op;
+	while (engine->op != NULL)
+	{
+		ft_putstr(engine->op->data);
+		ft_putchar('\n');
+		engine->op = engine->op->next;
+	}
+	engine->op = tmp;
 }
