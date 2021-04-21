@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/02 14:40:30 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/15 12:18:08 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@
 # define _PURPLE "\033[1;35m"
 # define _RED "\033[1;31m"
 
-# define ERROR_MALLOC 0
-# define NOT_DIGIT 1
-# define BIGGER_THAN_INT 2
-# define DUPLICATE 3
-# define OK 4
-# define KO 5
-# define WRONG_OP 6
+typedef enum	e_error
+{
+	ERROR_MALLOC,
+	NOT_DIGIT,
+	BIGGER_THAN_INT,
+	DUPLICATE,
+	OK,
+	KO,
+	WRONG_OP
+}				t_error;
 
 typedef struct	s_engine
 {

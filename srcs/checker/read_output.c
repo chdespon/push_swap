@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:01:58 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/06 15:29:33 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/20 11:37:54 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	read_output(t_engine *engine)
 	ret = 1;
 	while (ret >= 1)
 	{
-		// ft_putstr("Enter an operation... \"CTRL d\" to exit\n");
 		ret = get_next_line(STDIN_FILENO, &line);
 		set_op(line, engine);
 	}

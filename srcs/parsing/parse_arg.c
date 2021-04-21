@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/08 15:08:38 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/04/20 11:37:36 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ static void	check_duplicate_and_max_min_int(int ac, char **list,
 
 void		parse_arg(int ac, char **list, t_engine *engine)
 {
-	check_duplicate_and_max_min_int(ac ,list, engine);
+	check_duplicate_and_max_min_int(ac, list, engine);
 }
