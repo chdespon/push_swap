@@ -6,26 +6,11 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 13:15:05 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/21 16:08:00 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/11 14:41:58 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	find_best_start(t_list *stack_a, t_list *keep, int count_keep)
-{
-	while (stack_a != NULL)
-	{
-		if (((t_data_num*)keep->data)->index ==
-			((t_data_num*)stack_a->data)->index - 1)
-		{
-			((t_data_num*)stack_a->data)->keep = true;
-			keep = stack_a;
-			count_keep++;
-		}
-		stack_a = stack_a->next;
-	}
-}
 
 void	resolve_stack(t_engine *engine)
 {
@@ -34,16 +19,36 @@ void	resolve_stack(t_engine *engine)
 	int		count_keep;
 	t_list	*keep;
 
+
 	tmp = engine->stack_a;
 	pivot_value = engine->len_stack_a / 2;
-	count_keep = 1;
-	((t_data_num*)engine->stack_a->data)->keep = true;
-	keep = engine->stack_a;
-	engine->stack_a = engine->stack_a->next;
+
+	if (sort_stack_a(engine) == 1)
+		return ;
+	if (engine->len_stack_a == 2)
+	{
+		swap(&engine->stack_a, engine->len_stack_a);
+		ft_lst_add_back(&engine->op, ft_lst_create_node("sa"));
+		return ;
+	}
+	if (engine->len_stack_a == 3)
+	{
+		resolve_3(engine);
+		return ;
+	}
+	if (engine->len_stack_a <= 5)
+	{
+		resolve_5(engine);
+		return ;
+	}
 	while (engine->stack_a != NULL)
 	{
-		if (((t_data_num*)keep->data)->index ==
-			((t_data_num*)engine->stack_a->data)->index - 1)
+		((t_data_num*)engine->stack_a->data)->keep = true;
+		engine->stack_a = engine->stack_a->next;
+		keep = engine->stack_a;
+		count_keep = 1;
+		if (((t_data_num*)keep->data)->index <
+			((t_data_num*)engine->stack_a->data)->index)
 		{
 			((t_data_num*)engine->stack_a->data)->keep = true;
 			keep = engine->stack_a;

@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:41:56 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/06 13:51:27 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/11 15:24:53 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void		print_stacks(t_engine *engine);
 
 void		print_op(t_engine *engine);
 void		resolve_stack(t_engine *engine);
+int			sort_stack_a(t_engine *engine);
+void		resolve_5(t_engine *engine);
+void		resolve_3(t_engine *engine);
 
 /*
 ** Parsing

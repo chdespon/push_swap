@@ -31,7 +31,8 @@ CHECKER_SRC	=	checker.c quit.c parse_arg.c op_push.c op_swap.c op_rotate.c op_re
 				print_stacks.c
 
 PUSH_SWAP_SRC =	push_swap.c op_push.c op_swap.c op_rotate.c op_reverse.c engine_constructeur.c \
-				quit.c set_stack_a.c parse_arg.c resolve_stack.c print_op.c
+				quit.c set_stack_a.c parse_arg.c resolve_stack.c print_op.c sort_stack_a.c \
+				resolve_5.c resolve_3.c \
 
 # OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
