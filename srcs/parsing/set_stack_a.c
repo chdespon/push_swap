@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:24:40 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/21 10:46:26 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/12 14:17:46 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	set_stack_a(t_engine *engine, char **list)
 			quit(ERROR_MALLOC, engine);
 		}
 		data_num[i]->value = ft_atoi(list[i]);
-		data_num[i]->keep = false;
 		ft_lst_add_back(&engine->stack_a, ft_lst_create_node(data_num[i]));
 		i++;
 	}

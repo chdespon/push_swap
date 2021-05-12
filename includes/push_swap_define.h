@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/15 12:18:08 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/12 14:17:27 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct	s_data_num
 {
 	int		index;
 	int		value;
-	t_bool	keep;
 }				t_data_num;
 
 #endif
