@@ -32,7 +32,7 @@ CHECKER_SRC	=	checker.c quit.c parse_arg.c op_push.c op_swap.c op_rotate.c op_re
 
 PUSH_SWAP_SRC =	push_swap.c op_push.c op_swap.c op_rotate.c op_reverse.c engine_constructeur.c \
 				quit.c set_stack_a.c parse_arg.c resolve_stack.c print_op.c sort_stack_a.c \
-				resolve_5.c resolve_3.c resolve_100.c chunks.c \
+				resolve_5.c resolve_3.c resolve_100.c chunks.c resolve_500.c push_chunk_to_a.c \
 
 # OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 
@@ -41,7 +41,7 @@ PUSH_SWAP_OBJ = $(addprefix $(PUSH_SWAP_OBJ_DIR)/, $(PUSH_SWAP_SRC:%.c=%.o))
 CHECKER_OBJ = $(addprefix $(CHECKER_OBJ_DIR)/, $(CHECKER_SRC:%.c=%.o))
 
 #Compilation flag
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 # DEBUG =
 # ifdef DEBUG

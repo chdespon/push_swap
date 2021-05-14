@@ -6,13 +6,13 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:16:35 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/13 14:42:38 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/14 11:21:37 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_hold(t_engine *engine, int limit_cunk, int *hold_first,
+void		set_hold(t_engine *engine, int limit_cunk, int *hold_first,
 															int *hold_second)
 {
 	t_list	*tmp;
@@ -40,79 +40,44 @@ void	set_hold(t_engine *engine, int limit_cunk, int *hold_first,
 	engine->stack_a = tmp;
 }
 
-void	set_chunk(t_engine *engine, int len_stack_a, int limit_chunk)
+static void	reverse_chunk(t_engine *engine, int hold_second)
+{
+	while (hold_second < engine->len_stack_a)
+	{
+		reverse(&engine->stack_a, engine->len_stack_a);
+		ft_lst_add_back(&engine->op, ft_lst_create_node("rra"));
+		hold_second++;
+	}
+}
+
+static void	rotate_chunk(t_engine *engine, int hold_first)
+{
+	while (hold_first > 0)
+	{
+		rotate(&engine->stack_a, engine->len_stack_a);
+		ft_lst_add_back(&engine->op, ft_lst_create_node("ra"));
+		hold_first--;
+	}
+}
+
+void		set_chunk(t_engine *engine, int len_stack_a, int limit_chunk,
+																int chunk_size)
 {
 	int	hold_first;
 	int	hold_second;
 	int	i;
 
 	i = 0;
-	while (i < len_stack_a && i < 20)
+	while (i < len_stack_a && i < chunk_size)
 	{
 		set_hold(engine, limit_chunk, &hold_first, &hold_second);
 		if (engine->len_stack_a - hold_second < hold_first)
-		{
-			while (hold_second < engine->len_stack_a)
-			{
-				reverse(&engine->stack_a, engine->len_stack_a);
-				ft_lst_add_back(&engine->op, ft_lst_create_node("rra"));
-				hold_second++;
-			}
-		}
+			reverse_chunk(engine, hold_second);
 		else
-			while (hold_first > 0)
-			{
-				rotate(&engine->stack_a, engine->len_stack_a);
-				ft_lst_add_back(&engine->op, ft_lst_create_node("ra"));
-				hold_first--;
-			}
+			rotate_chunk(engine, hold_first);
 		push(&engine->stack_b, &engine->stack_a, &engine->len_stack_b,
 			&engine->len_stack_a);
 		ft_lst_add_back(&engine->op, ft_lst_create_node("pb"));
 		i++;
-	}
-}
-
-void	push_chunk_to_a(t_engine *engine)
-{
-	t_list *tmp;
-	int		i;
-	while (engine->len_stack_b > 0)
-	{
-		i = 0;
-		tmp = engine->stack_b;
-		while (engine->stack_b != NULL)
-		{
-			if (((t_data_num*)engine->stack_b->data)->index ==
-				engine->len_stack_b - 1)
-				break ;
-			engine->stack_b = engine->stack_b->next;
-			i++;
-		}
-		engine->stack_b = tmp;
-		if (i < engine->len_stack_b / 2)
-		{
-			while (i > 0)
-			{
-				rotate(&engine->stack_b, engine->len_stack_b);
-				ft_lst_add_back(&engine->op, ft_lst_create_node("rb"));
-				i--;
-			}
-			push(&engine->stack_a, &engine->stack_b, &engine->len_stack_a,
-				&engine->len_stack_b);
-			ft_lst_add_back(&engine->op, ft_lst_create_node("pa"));
-		}
-		else
-		{
-			while (i != engine->len_stack_b)
-			{
-				reverse(&engine->stack_b, engine->len_stack_b);
-				ft_lst_add_back(&engine->op, ft_lst_create_node("rrb"));
-				i++;
-			}
-			push(&engine->stack_a, &engine->stack_b, &engine->len_stack_a,
-				&engine->len_stack_b);
-			ft_lst_add_back(&engine->op, ft_lst_create_node("pa"));
-		}
 	}
 }

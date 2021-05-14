@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:41:56 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/13 14:43:16 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/14 12:09:39 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void		resolve_5(t_engine *engine);
 void		resolve_3(t_engine *engine);
 void		resolve_100(t_engine *engine);
 void		push_chunk_to_a(t_engine *engine);
-void		set_chunk(t_engine *engine, int len_stack_a, int limit_chunk);
-
+void		set_chunk(t_engine *engine, int len_stack_a, int limit_chunk,
+																int chunk_size);
+void		resolve_500(t_engine *engine);
+void		push_chunk_to_a(t_engine *engine);
 
 /*
 ** Parsing
@@ -49,7 +51,6 @@ void		set_chunk(t_engine *engine, int len_stack_a, int limit_chunk);
 void		set_stack_a(t_engine *engine, char **list);
 void		parse_arg(int ac, char **list, t_engine *engine);
 void		set_stack_index(t_engine *engine);
-
 
 /*
 ** OP
