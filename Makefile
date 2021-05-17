@@ -41,7 +41,7 @@ PUSH_SWAP_OBJ = $(addprefix $(PUSH_SWAP_OBJ_DIR)/, $(PUSH_SWAP_SRC:%.c=%.o))
 CHECKER_OBJ = $(addprefix $(CHECKER_OBJ_DIR)/, $(CHECKER_SRC:%.c=%.o))
 
 #Compilation flag
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 # DEBUG =
 # ifdef DEBUG

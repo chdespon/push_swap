@@ -2,8 +2,8 @@
 
 MAX=0
 ITERATIONS=0
-LIMIT=700
-FILE=problem_100
+LIMIT=8500
+FILE=problem_500
 SUM=0
 
 for i in {1..100}

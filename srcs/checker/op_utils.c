@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:04:06 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/02 13:04:17 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:35:16 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ void		set_op(char *str, t_engine *engine)
 	else
 	{
 		ft_lst_clear(&engine->op, free);
-		quit(WRONG_OP, engine);
+		quit(ERROR, engine);
 	}
 }

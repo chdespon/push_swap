@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/20 11:37:36 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:34:48 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	check_only_digit(char *str, t_engine *engine)
 			|| (str[0] == '-' && str[1] == '\0')
 			|| (i > 0 && str[i] == '-'
 			&& (str[i - 1] != ' ' || ft_is_digit(str[i + 1]) == false)))
-			quit(NOT_DIGIT, engine);
+			quit(ERROR, engine);
 		i++;
 	}
 }
@@ -42,13 +42,13 @@ static void	check_duplicate_and_max_min_int(int ac, char **list,
 	while (i < len + (int)engine->verbose)
 	{
 		if (ft_atoi(list[i]) > INT_MAX || ft_atoi(list[i]) < INT_MIN)
-			quit(BIGGER_THAN_INT, engine);
+			quit(ERROR, engine);
 		check_only_digit(list[i], engine);
 		j = 1;
 		while (j + i < len)
 		{
 			if (ft_atoi(list[i]) == ft_atoi(list[i + j]))
-				quit(DUPLICATE, engine);
+				quit(ERROR, engine);
 			j++;
 		}
 		i++;

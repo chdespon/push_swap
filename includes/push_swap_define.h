@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/12 14:17:27 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:33:43 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@
 
 typedef enum	e_error
 {
-	ERROR_MALLOC,
-	NOT_DIGIT,
-	BIGGER_THAN_INT,
-	DUPLICATE,
+	ERROR,
 	OK,
 	KO,
-	WRONG_OP
 }				t_error;
 
 typedef struct	s_engine

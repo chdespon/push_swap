@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:54:58 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/14 11:01:02 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:34:25 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 
 void	quit(int i, t_engine *engine)
 {
-	if (i == ERROR_MALLOC)
-		ft_putstr_fd(2, _RED"Error\n"_WHITE);
-	else if (i == NOT_DIGIT)
-		ft_putstr_fd(2, _RED"Error\n"_WHITE);
-	else if (i == BIGGER_THAN_INT)
-		ft_putstr_fd(2, _RED"Error\n"
-			_WHITE);
-	else if (i == DUPLICATE)
+	if (i == ERROR)
 		ft_putstr_fd(2, _RED"Error\n"_WHITE);
 	else if (i == OK)
 	{
@@ -35,7 +28,6 @@ void	quit(int i, t_engine *engine)
 		ft_lst_clear(&engine->op, free);
 		ft_putstr(_RED"KO\n"_WHITE);
 	}
-	else if (i == WRONG_OP)
-		ft_putstr_fd(2, _RED"Error\n"_WHITE);
+	free(engine);
 	exit(0);
 }

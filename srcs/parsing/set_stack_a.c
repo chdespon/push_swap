@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:24:40 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/12 14:17:46 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/17 11:34:58 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	set_stack_a(t_engine *engine, char **list)
 
 	data_num = (t_data_num**)malloc(sizeof(t_data_num*) * engine->len_stack_a);
 	if (data_num == NULL)
-		quit(ERROR_MALLOC, engine);
+		quit(ERROR, engine);
 	i = 0;
 	while (i < engine->len_stack_a)
 	{
@@ -54,7 +54,7 @@ void	set_stack_a(t_engine *engine, char **list)
 				free(data_num[i]);
 				i--;
 			}
-			quit(ERROR_MALLOC, engine);
+			quit(ERROR, engine);
 		}
 		data_num[i]->value = ft_atoi(list[i]);
 		ft_lst_add_back(&engine->stack_a, ft_lst_create_node(data_num[i]));
