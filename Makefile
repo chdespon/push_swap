@@ -43,11 +43,6 @@ CHECKER_OBJ = $(addprefix $(CHECKER_OBJ_DIR)/, $(CHECKER_SRC:%.c=%.o))
 #Compilation flag
 CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
-# DEBUG =
-# ifdef DEBUG
-#     CFLAGS += -fsanitize=address
-# endif
-
 IFLAGS =	$(foreach dir, $(INC_DIR), -I$(dir))
 
 LFLAGS =	$(foreach dir, $(LIB_DIR), -L $(dir)) \
@@ -79,12 +74,12 @@ show:
 
 libft/libft.a:
 				@echo -n "$(_CYAN)"
-				$(foreach dir, $(LIB_DIR), make DEBUG=$(DEBUG) -C $(dir) ; )
+				$(foreach dir, $(LIB_DIR), make --no-print-directory -C $(dir) ; )
 				@echo -n "$(_WHITE)"
 
 re-install:
 				@echo "$(_CYAN)"
-				$(foreach dir, $(LIB_DIR), make DEBUG=$(DEBUG) -C $(dir) re ; )
+				$(foreach dir, $(LIB_DIR), make --no-print-directory -C $(dir) re ; )
 				@echo "$(_WHITE)"
 
 $(PUSH_SWAP_OBJ_DIR)/%.o : %.c
