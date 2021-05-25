@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 11:55:37 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/14 11:51:03 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:06:40 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_op(t_engine *engine)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = engine->op;
 	while (engine->op != NULL)

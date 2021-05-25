@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 10:05:51 by chdespon          #+#    #+#             */
-/*   Updated: 2021/03/31 11:58:49 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:10:21 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push(t_list **dest, t_list **src, int *len_dest, int *len_src)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = NULL;
 	if (*src == NULL)

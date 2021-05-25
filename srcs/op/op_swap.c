@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 11:53:57 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/01 11:25:18 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:10:33 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_list **stack, int len)
 {
-	void *tmp;
+	void	*tmp;
 
 	tmp = NULL;
 	if (len < 2)

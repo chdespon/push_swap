@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:24:40 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/17 11:34:58 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:20:06 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	set_stack_index(t_engine *engine)
 		index = 0;
 		while (tmp_j != NULL)
 		{
-			if (((t_data_num*)tmp_i->data)->value >
-				((t_data_num*)tmp_j->data)->value)
+			if (((t_data_num *)tmp_i->data)->value
+				> ((t_data_num *)tmp_j->data)->value)
 				index++;
 			tmp_j = tmp_j->next;
 		}
-		((t_data_num*)tmp_i->data)->index = index;
+		((t_data_num *)tmp_i->data)->index = index;
 		tmp_i = tmp_i->next;
 	}
 }
@@ -40,13 +40,14 @@ void	set_stack_a(t_engine *engine, char **list)
 	int			i;
 	t_data_num	**data_num;
 
-	data_num = (t_data_num**)malloc(sizeof(t_data_num*) * engine->len_stack_a);
+	data_num = (t_data_num **)malloc(sizeof(t_data_num *)
+			* engine->len_stack_a);
 	if (data_num == NULL)
 		quit(ERROR, engine);
 	i = 0;
 	while (i < engine->len_stack_a)
 	{
-		data_num[i] = (t_data_num*)malloc(sizeof(t_data_num));
+		data_num[i] = (t_data_num *)malloc(sizeof(t_data_num));
 		if (data_num[i] == NULL)
 		{
 			while (i >= 0)

@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:02:54 by chdespon          #+#    #+#             */
-/*   Updated: 2020/09/28 14:07:10 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:10:05 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	file_overwrite(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (ft_file_exist(path))
@@ -24,7 +24,7 @@ static int	file_overwrite(char *path)
 
 static int	file_append(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (ft_file_exist(path))
@@ -34,7 +34,7 @@ static int	file_append(char *path)
 
 static int	file_create(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (ft_file_exist(path) == false)
@@ -59,9 +59,9 @@ static void	condition_fd(int fd, int nb)
 	}
 }
 
-void		ft_putnbr_fp(char *path, int nb, char *mode)
+void	ft_putnbr_fp(char *path, int nb, char *mode)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (mode == NULL || path == NULL)

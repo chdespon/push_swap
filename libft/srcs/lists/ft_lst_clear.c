@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 12:47:03 by tguilbar          #+#    #+#             */
-/*   Updated: 2021/03/26 13:50:07 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:32:13 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lst_clear(t_list **lst, void (*del)(void*))
 {
-	t_list *l;
+	t_list	*l;
 
 	if (*lst == NULL)
 		return ;

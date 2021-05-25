@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 11:05:13 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/17 11:34:48 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:17:56 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 static void	check_only_digit(char *str, t_engine *engine)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
 		if ((ft_is_digit(str[i]) == false
-			&& ft_is_whitespaces(str[i]) == false && str[i] != '-')
-			|| (str[0] == '-' && str[1] == '\0')
-			|| (i > 0 && str[i] == '-'
-			&& (str[i - 1] != ' ' || ft_is_digit(str[i + 1]) == false)))
+				&& ft_is_whitespaces(str[i]) == false && str[i] != '-')
+			|| (str[0] == '-' && str[1] == '\0') || (i > 0 && str[i] == '-'
+				&& (str[i - 1] != ' ' || ft_is_digit(str[i + 1]) == false)))
 			quit(ERROR, engine);
 		i++;
 	}
@@ -32,9 +31,9 @@ static void	check_only_digit(char *str, t_engine *engine)
 static void	check_duplicate_and_max_min_int(int ac, char **list,
 															t_engine *engine)
 {
-	int i;
-	int j;
-	int len;
+	int	i;
+	int	j;
+	int	len;
 
 	len = ac - 1 - engine->verbose;
 	engine->len_stack_a = len;
@@ -55,7 +54,7 @@ static void	check_duplicate_and_max_min_int(int ac, char **list,
 	}
 }
 
-void		parse_arg(int ac, char **list, t_engine *engine)
+void	parse_arg(int ac, char **list, t_engine *engine)
 {
 	check_duplicate_and_max_min_int(ac, list, engine);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_add_prefixe.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncoudsi <ncoudsi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:02:39 by ncoudsi           #+#    #+#             */
-/*   Updated: 2019/12/11 11:21:50 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/05/25 12:39:29 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_str_add_prefixe(char *p_prefixe, char **p_str)
+void	ft_str_add_prefixe(char *p_prefixe, char **p_str)
 {
 	char	*tmp;
 

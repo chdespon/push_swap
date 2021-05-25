@@ -6,13 +6,13 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:16:35 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/14 11:21:37 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:07:41 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		set_hold(t_engine *engine, int limit_cunk, int *hold_first,
+void	set_hold(t_engine *engine, int limit_cunk, int *hold_first,
 															int *hold_second)
 {
 	t_list	*tmp;
@@ -22,7 +22,7 @@ void		set_hold(t_engine *engine, int limit_cunk, int *hold_first,
 	i = 0;
 	while (engine->stack_a != NULL)
 	{
-		if (((t_data_num*)engine->stack_a->data)->index <= limit_cunk)
+		if (((t_data_num *)engine->stack_a->data)->index <= limit_cunk)
 		{
 			*hold_first = i;
 			break ;
@@ -32,7 +32,7 @@ void		set_hold(t_engine *engine, int limit_cunk, int *hold_first,
 	}
 	while (engine->stack_a != NULL)
 	{
-		if (((t_data_num*)engine->stack_a->data)->index <= limit_cunk)
+		if (((t_data_num *)engine->stack_a->data)->index <= limit_cunk)
 			*hold_second = i;
 		engine->stack_a = engine->stack_a->next;
 		i++;
@@ -60,7 +60,7 @@ static void	rotate_chunk(t_engine *engine, int hold_first)
 	}
 }
 
-void		set_chunk(t_engine *engine, int len_stack_a, int limit_chunk,
+void	set_chunk(t_engine *engine, int len_stack_a, int limit_chunk,
 																int chunk_size)
 {
 	int	hold_first;

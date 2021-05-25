@@ -6,17 +6,15 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 13:40:26 by chdespon          #+#    #+#             */
-/*   Updated: 2020/09/28 13:54:22 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:49:13 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include "libft.h"
-
 static int	file_overwrite(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (ft_file_exist(path))
@@ -26,7 +24,7 @@ static int	file_overwrite(char *path)
 
 static int	file_append(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (ft_file_exist(path))
@@ -36,7 +34,7 @@ static int	file_append(char *path)
 
 static int	file_create(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (ft_file_exist(path) == false)
@@ -46,7 +44,7 @@ static int	file_create(char *path)
 
 static void	print_tab(int fd, char *p_name, char **p_tab)
 {
-	size_t index;
+	size_t	index;
 
 	index = 0;
 	if (p_name != NULL)
@@ -67,10 +65,10 @@ static void	print_tab(int fd, char *p_name, char **p_tab)
 	ft_putstr_fd(fd, "-----===-----\n");
 }
 
-void		ft_print_str_tab_fp(char *path, char *p_name,
+void	ft_print_str_tab_fp(char *path, char *p_name,
 													char **p_tab, char *mode)
 {
-	int fd;
+	int	fd;
 
 	fd = -1;
 	if (mode == NULL || path == NULL)

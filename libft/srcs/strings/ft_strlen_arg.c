@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen_arg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguilbar <tguilbar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 13:18:38 by tguilbar          #+#    #+#             */
-/*   Updated: 2019/12/17 14:55:39 by ldutriez         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:39:09 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlen_arg(char *p_str, char p_c)
 {
-	size_t i;
-	size_t size;
+	size_t	i;
+	size_t	size;
 
 	size = 0;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/01 11:40:04 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/02 11:44:05 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:13:31 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static void	print_stack_b(t_engine *engine)
 {
-	int spaces;
+	int	spaces;
 
 	if (engine->stack_b != NULL)
 	{
-		spaces = 13 - ft_nbrlen(((t_data_num*)engine->stack_b->data)->value);
+		spaces = 13 - ft_nbrlen(((t_data_num *)engine->stack_b->data)->value);
 		while (spaces > 0)
 		{
 			ft_putchar(' ');
 			spaces--;
 		}
-		ft_putnbr(((t_data_num*)engine->stack_b->data)->value);
+		ft_putnbr(((t_data_num *)engine->stack_b->data)->value);
 		engine->stack_b = engine->stack_b->next;
 	}
 	else
@@ -33,24 +33,24 @@ static void	print_stack_b(t_engine *engine)
 
 static void	print_stack_a(t_engine *engine)
 {
-	int spaces;
+	int	spaces;
 
 	if (engine->stack_a != NULL)
 	{
-		spaces = 13 - ft_nbrlen(((t_data_num*)engine->stack_a->data)->value);
+		spaces = 13 - ft_nbrlen(((t_data_num *)engine->stack_a->data)->value);
 		while (spaces > 0)
 		{
 			ft_putchar(' ');
 			spaces--;
 		}
-		ft_putnbr(((t_data_num*)engine->stack_a->data)->value);
+		ft_putnbr(((t_data_num *)engine->stack_a->data)->value);
 		engine->stack_a = engine->stack_a->next;
 	}
 	else
 		ft_putstr("             ");
 }
 
-void		print_stacks(t_engine *engine)
+void	print_stacks(t_engine *engine)
 {
 	t_list	*tmp_a;
 	t_list	*tmp_b;

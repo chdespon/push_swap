@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rm_charset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chdespon <chdespont@student.42.fr>         +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:59:06 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/09 14:40:44 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:38:02 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_bool	is_not_in_cs(char p_c, char *p_charset)
 {
-	int		index;
+	int	index;
 
 	index = 0;
 	while (p_charset && p_charset[index])
@@ -26,10 +26,10 @@ static t_bool	is_not_in_cs(char p_c, char *p_charset)
 	return (true);
 }
 
-static int		str_len_without_cs(char *p_str, char *p_charset)
+static int	str_len_without_cs(char *p_str, char *p_charset)
 {
-	int result;
-	int index;
+	int	result;
+	int	index;
 
 	result = 0;
 	index = 0;
@@ -42,7 +42,7 @@ static int		str_len_without_cs(char *p_str, char *p_charset)
 	return (result);
 }
 
-char			*ft_rm_charset(char *p_str, char *p_charset)
+char	*ft_rm_charset(char *p_str, char *p_charset)
 {
 	char	*result;
 	int		index;

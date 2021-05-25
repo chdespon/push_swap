@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_f_roof.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 13:11:18 by ldutriez          #+#    #+#             */
-/*   Updated: 2019/12/02 16:50:22 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/05/25 14:12:24 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-float		ft_f_roof(float p_value)
+float	ft_f_roof(float p_value)
 {
 	float	rounded_value;
 	int		i_value;

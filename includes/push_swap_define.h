@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:51:30 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/17 11:33:43 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:24:40 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 # define _PURPLE "\033[1;35m"
 # define _RED "\033[1;31m"
 
-typedef enum	e_error
+typedef enum e_error
 {
 	ERROR,
 	OK,
 	KO,
-}				t_error;
+}	t_error;
 
-typedef struct	s_engine
+typedef struct s_engine
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -35,12 +35,12 @@ typedef struct	s_engine
 	int		len_stack_b;
 	int		last_node;
 	t_bool	verbose;
-}				t_engine;
+}			t_engine;
 
-typedef struct	s_data_num
+typedef struct s_data_num
 {
 	int		index;
 	int		value;
-}				t_data_num;
+}			t_data_num;
 
 #endif

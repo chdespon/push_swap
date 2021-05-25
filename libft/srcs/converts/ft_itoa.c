@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncoudsi <ncoudsi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 16:30:21 by ncoudsi           #+#    #+#             */
-/*   Updated: 2019/12/03 16:32:38 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/05/25 14:12:45 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa(long long int nbr)
+char	*ft_itoa(long long int nbr)
 {
 	char	*base;
 	char	*result;

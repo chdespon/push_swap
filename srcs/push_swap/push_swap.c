@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 14:34:34 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/14 12:02:57 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:15:22 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	t_engine *engine;
+	t_engine	*engine;
 
 	if (ac == 1)
 		return (0);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lst_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguilbar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 15:17:49 by tguilbar          #+#    #+#             */
-/*   Updated: 2020/02/25 11:17:46 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/05/25 12:31:46 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_list	*ft_lst_map(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	error = 0;
 	if (lst == NULL)
 		return (NULL);
-	if (!(l1 = ft_lst_create_node((*f)(lst->data))))
+	l1 = ft_lst_create_node((*f)(lst->data));
+	if (l1 == NULL)
 		return (NULL);
 	lst = lst->next;
 	while (lst)

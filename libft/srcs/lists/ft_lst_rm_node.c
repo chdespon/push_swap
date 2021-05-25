@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_rmone.c                                     :+:      :+:    :+:   */
+/*   ft_lst_rm_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tguilbar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 09:51:44 by tguilbar          #+#    #+#             */
-/*   Updated: 2020/02/25 11:57:27 by tguilbar         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:32:28 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_lst_rm_node(t_list **lst, size_t num, void (*del)(void*))
 {
-	t_list *lst1;
-	t_list *lst2;
+	t_list	*lst1;
+	t_list	*lst2;
 
 	if (lst == NULL || *lst == NULL)
 		return ;

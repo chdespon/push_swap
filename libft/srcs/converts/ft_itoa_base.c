@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 11:49:49 by tguilbar          #+#    #+#             */
-/*   Updated: 2021/04/01 15:22:16 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:12:00 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	nbrlen(long long int nbr, size_t base_len)
 	return (nbr_len);
 }
 
-char			*ft_itoa_base(long long int nbr, char *base)
+char	*ft_itoa_base(long long int nbr, char *base)
 {
 	size_t					base_len;
 	size_t					nbr_len;

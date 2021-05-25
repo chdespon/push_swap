@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncoudsi <ncoudsi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 10:57:07 by ncoudsi           #+#    #+#             */
-/*   Updated: 2020/01/27 09:49:56 by tguilbar         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:41:10 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static size_t	ft_word_count(char *p_src, char p_sep)
 {
-	size_t i;
-	size_t count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;
@@ -33,7 +33,7 @@ static size_t	ft_word_count(char *p_src, char p_sep)
 	return (count);
 }
 
-static void		*ft_clear(char **p_tab, int p_j)
+static void	*ft_clear(char **p_tab, int p_j)
 {
 	while (p_j >= 0)
 	{
@@ -54,11 +54,11 @@ static size_t	ft_wordlen(char *p_src, char p_sep)
 	return (result);
 }
 
-static char		**ft_fill_tab(char **p_tab, char *p_src,
-												char p_sep, size_t tab_size)
+static char	**ft_fill_tab(char **p_tab, char *p_src,
+													char p_sep, size_t tab_size)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -80,7 +80,7 @@ static char		**ft_fill_tab(char **p_tab, char *p_src,
 	return (p_tab);
 }
 
-char			**ft_split(char *p_src, char p_sep)
+char	**ft_split(char *p_src, char p_sep)
 {
 	size_t	tab_size;
 	char	**result;

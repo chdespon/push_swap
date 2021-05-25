@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:07:57 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/12 12:48:41 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:09:20 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	sort_stack_a(t_engine *engine)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = engine->stack_a;
 	while (engine->stack_a != NULL && engine->stack_a->next != NULL)
 	{
-		if (((t_data_num*)engine->stack_a->data)->value >
-			((t_data_num*)engine->stack_a->next->data)->value)
+		if (((t_data_num *)engine->stack_a->data)->value
+			> ((t_data_num *)engine->stack_a->next->data)->value)
 		{
 			engine->stack_a = tmp;
 			return (0);

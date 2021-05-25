@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 13:55:23 by chdespon          #+#    #+#             */
-/*   Updated: 2021/04/01 11:25:35 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:10:41 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	reverse(t_list **stack, int len)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack;
 	if (len > 2)

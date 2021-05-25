@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 17:06:39 by ncoudsi           #+#    #+#             */
-/*   Updated: 2021/04/01 15:29:14 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:28:18 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ void			ft_lst_rm_node(t_list **lst, size_t num, void (*del)(void*));
 **	List inf de char
 */
 
-typedef struct	s_char_list
+typedef struct s_char_list
 {
-	char		**data;
-	size_t		size;
-}				t_char_list;
+	char	**data;
+	size_t	size;
+}			t_char_list;
 
 char			**ft_chartab_new(size_t nb);
 t_char_list		create_char_list(size_t p_size);
@@ -131,10 +131,10 @@ char			**ft_get_file(char *path);
 void			ft_print_str_tab(char *p_name, char **p_tab);
 void			ft_print_str_tab_fd(int fd, char *p_name, char **p_tab);
 void			ft_print_str_tab_fp(char *path, char *p_name, char **p_tab,
-																	char *mode);
+					char *mode);
 void			ft_print_int_tab(char *p_name, int *p_tab, size_t len);
 void			ft_print_int_tab_fd(int fd, char *p_name, int *p_tab,
-																	size_t len);
+					size_t len);
 
 /*
 **	Prototypage des TABS.

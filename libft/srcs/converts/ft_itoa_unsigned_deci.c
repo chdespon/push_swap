@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 16:42:31 by ncoudsi           #+#    #+#             */
-/*   Updated: 2021/04/01 15:22:42 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:11:05 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	nbrlen(unsigned long long int nbr, size_t base_len)
 {
-	size_t					nbr_len;
+	size_t	nbr_len;
 
 	nbr_len = 1;
 	while (nbr >= base_len)
@@ -25,12 +25,12 @@ static size_t	nbrlen(unsigned long long int nbr, size_t base_len)
 	return (nbr_len);
 }
 
-char			*ft_itoa_unsigned_deci(unsigned int nbr)
+char	*ft_itoa_unsigned_deci(unsigned int nbr)
 {
-	char					*base;
-	size_t					base_len;
-	size_t					nbr_len;
-	char					*result;
+	char	*base;
+	size_t	base_len;
+	size_t	nbr_len;
+	char	*result;
 
 	base = "0123456789";
 	base_len = ft_strlen(base);

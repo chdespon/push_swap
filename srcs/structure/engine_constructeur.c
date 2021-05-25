@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:19:52 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/17 11:33:55 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:09:44 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ t_engine	create_engine(void)
 
 t_engine	*malloc_engine(void)
 {
-	t_engine *result;
+	t_engine	*result;
 
-	result = (t_engine*)malloc(sizeof(t_engine));
+	result = (t_engine *)malloc(sizeof(t_engine));
 	if (result == NULL)
 		quit(ERROR, result);
 	*result = create_engine();

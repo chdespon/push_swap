@@ -6,7 +6,7 @@
 /*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 10:04:06 by chdespon          #+#    #+#             */
-/*   Updated: 2021/05/17 11:35:16 by chdespon         ###   ########.fr       */
+/*   Updated: 2021/05/25 12:12:22 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static void	apply_instruction_2(t_engine *engine)
 			engine->len_stack_b);
 }
 
-void		apply_instruction(t_engine *engine)
+void	apply_instruction(t_engine *engine)
 {
 	if (ft_strcmp(engine->op->data, "pa") == 0)
 		push(&engine->stack_a, &engine->stack_b, &engine->len_stack_a,
-				&engine->len_stack_b);
+			&engine->len_stack_b);
 	else if (ft_strcmp(engine->op->data, "pb") == 0)
 		push(&engine->stack_b, &engine->stack_a, &engine->len_stack_b,
-				&engine->len_stack_a);
+			&engine->len_stack_a);
 	else if (ft_strcmp(engine->op->data, "sa") == 0)
 		swap(&engine->stack_a, engine->len_stack_a);
 	else if (ft_strcmp(engine->op->data, "sb") == 0)
@@ -48,7 +48,7 @@ void		apply_instruction(t_engine *engine)
 	apply_instruction_2(engine);
 }
 
-void		apply_op(t_engine *engine)
+void	apply_op(t_engine *engine)
 {
 	t_list	*tmp;
 
@@ -74,14 +74,14 @@ void		apply_op(t_engine *engine)
 	engine->op = tmp;
 }
 
-void		set_op(char *str, t_engine *engine)
+void	set_op(char *str, t_engine *engine)
 {
-	if (ft_strcmp(str, "pa") == 0 || ft_strcmp(str, "pb") == 0 ||
-			ft_strcmp(str, "sa") == 0 || ft_strcmp(str, "sb") == 0 ||
-			ft_strcmp(str, "ss") == 0 || ft_strcmp(str, "ra") == 0 ||
-			ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rr") == 0 ||
-			ft_strcmp(str, "rra") == 0 || ft_strcmp(str, "rrb") == 0 ||
-			ft_strcmp(str, "rrr") == 0)
+	if (ft_strcmp(str, "pa") == 0 || ft_strcmp(str, "pb") == 0
+		|| ft_strcmp(str, "sa") == 0 || ft_strcmp(str, "sb") == 0
+		|| ft_strcmp(str, "ss") == 0 || ft_strcmp(str, "ra") == 0
+		|| ft_strcmp(str, "rb") == 0 || ft_strcmp(str, "rr") == 0
+		|| ft_strcmp(str, "rra") == 0 || ft_strcmp(str, "rrb") == 0
+		|| ft_strcmp(str, "rrr") == 0)
 		ft_lst_add_back(&engine->op, ft_lst_create_node(str));
 	else if (ft_strcmp(str, "") == 0)
 	{

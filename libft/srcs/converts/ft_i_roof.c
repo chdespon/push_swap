@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_i_roof.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chdespon <chdespon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 08:52:38 by ldutriez          #+#    #+#             */
-/*   Updated: 2019/12/02 17:17:21 by ncoudsi          ###   ########.fr       */
+/*   Updated: 2021/05/25 14:12:55 by chdespon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_i_roof(float p_value)
+int	ft_i_roof(float p_value)
 {
-	int			i_value;
+	int	i_value;
 
 	if (p_value == 0)
 		return (0);
